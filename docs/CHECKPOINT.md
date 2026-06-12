@@ -22,7 +22,7 @@ Per §8 the RED default is no-go, and the §15 override condition ("a thread pri
 3. **Set a revisit trigger, not a date:** SplitVault (or similar) showing real third-party usage — non-deployer mints, nonzero TVL, a secondary pool. Engaging mmchougule in-thread is cheap and doubles as go-to-market (§15 already names him the primary integration candidate).
 4. Any decision to override and bootstrap liquidity ourselves must be a conscious written one per §8.
 
-**Decision status: open — founder call.**
+**Decision status: DECIDED 2026-06-12 (founder, in session).** Conditional pause on venue-dependent Menhir work accepted. Miniapp cut entirely. Build `lucid-8183` now (§16). Reach out to mmchougule (SplitVault) under the assumption the primitive will mature — outreach draft to be prepared. Revisit trigger unchanged (SplitVault third-party usage / TVL / secondary pool).
 
 ## Probe results — 2026-06-11, venue: Seer (Gnosis, chain 100)
 

@@ -1,0 +1,26 @@
+{
+  "name": "lucid-8183",
+  "version": "0.1.0",
+  "description": "ERC-8183 (Agentic Commerce) adapter for the Lucid Agents SDK — escrowed jobs, evaluator settlement, expiry refunds.",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@lucid-agents/core": "^2.5.0",
+    "viem": "^2.52.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.5.0",
+    "vitest": "^3.0.0"
+  }
+}
