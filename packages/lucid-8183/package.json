@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@lucid-agents/core": "^2.5.0",
+    "@lucid-agents/types": "^1.7.0",
     "viem": "^2.52.2"
   },
   "devDependencies": {
