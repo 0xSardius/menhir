@@ -40,11 +40,23 @@ Command: `npx tsx menhir-probe.ts` (ran clean, no endpoint drift, no fixes neede
 - **PRD §8 default on RED: no-go.** Proceeding means becoming a market-bootstrapping project first, agent project second. Walk with data; harvest standalone pieces (§16: `lucid-8183` adapter, the reusable pattern).
 - **§15 override question (open):** the ethresearch thread is bootstrapping the market — if mmchougule's physically-settled P/N vault on Base (or a similar thread primitive) is live and usable, the GREEN path exists without Seer. This requires web research into the current state of those contracts. Per §8, overriding the no-go default requires a conscious, written decision.
 
+## lucid-8183 build status (2026-06-12)
+
+Verified-spec foundation: ERC-8183 interface/events/errors transcribed from the reference implementation (github.com/erc-8183/base-contracts, MIT); extension typed against the real `@lucid-agents/types` `Extension` interface (compile-time contract).
+
+- ✅ **Step 0 — spec spike.** ERC-8183 is real (eips.ethereum.org/EIPS/eip-8183; Open→Funded→Submitted→Completed/Rejected/Expired; evaluator-only complete/reject; claimRefund after expiry; optional IERC8183Hook). SDK = `@lucid-agents/core@2.5.0` + `@lucid-agents/types@1.7.0` (daydreamsai/lucid-agents).
+- ✅ **Step 1 — `Erc8183Client`** (`packages/lucid-8183/src/client.ts`): typed viem client, simulate-first writes, jobId from receipt logs, ERC-20 allowance handling, settlement watcher. Tests green.
+- ✅ **Step 2 (reordered) — `erc8183()` extension** (`src/extension.ts`): Lucid Agents runtime slice — createAndFundJob / submitWork / commitmentOf / watchSettlement / claimExpiredRefund. Tests green (9 total).
+- ⬜ **IEvaluator + reference evaluator (Solidity + Foundry).** Blocked locally: Foundry not installed on this machine. Note: we only need the *evaluator*, not the escrow — the ERC8183 reference contract already exists.
+- ⬜ **Base Sepolia e2e demo.** Needs: a deployed ERC-8183 escrow on Base Sepolia (check whether a canonical deployment exists first — none was listed in the repo docs; we may need to deploy the reference impl ourselves), funded testnet wallet (keys via `.env`, never committed/echoed).
+- 📄 **Outreach draft to mmchougule:** `docs/outreach-mmchougule.md` — ready for user review/posting; verify his exact thread wording before quoting.
+
 ## Next actions
 
-1. User records the written go/no-go call (recommendation above: conditional pause + salvage).
-2. If pause accepted → scope and build `lucid-8183` (§16); optionally draft the in-thread reply to mmchougule.
-3. Revisit Menhir's venue build when the trigger fires (SplitVault third-party usage / TVL / secondary pool).
+1. Install Foundry; write `IEvaluator` + reference evaluator + tests (ethskills for Solidity).
+2. Find or deploy an ERC-8183 escrow on Base Sepolia; run the e2e demo.
+3. User: review/post the mmchougule outreach draft.
+4. Revisit Menhir's venue build when the trigger fires (SplitVault third-party usage / TVL / secondary pool).
 
 ## Session log
 
